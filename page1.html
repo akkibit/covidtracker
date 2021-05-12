@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="icon" href="favicon.ico">
+    <script src="cities.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <title>Covid-19 Tracker for Managers</title>
+  </head>
+  <body style="background-color: #fff7e6">
+    <div>
+      <div class="block-1 page1">
+        <h4>Covid-19 Tracker for Managers</h4>
+      </div>
+      <div class="form">
+        <form class="row g-3">
+          <div>
+            <h6>* Required</h6>
+            <h4>Team Member's Details</h4>
+            <p>Provide the details of your Team Member if they are COVID-19 impacted</p>
+          </div>
+          <div class="col-12">
+            <label for="Members-Name" class="form-label"><h6>Team Member's Name*</h6></label>
+            <input type="text" class="form-control" id="Members-Name" placeholder="Full Name">
+          </div>
+          <div class="col-md-6">
+            <label for="TeamMembers-code" class="form-label"><h6>Team Member's Employee Code*</h6></label>
+            <input type="pin" class="form-control" placeholder="4010xxxx" maxlength="8" minlength="8" id="TeamMembers-code">
+          </div>
+          <div class="col-md-6">
+            <label for="Contact" class="form-label"><h6>Team Member's Phone Number*</h6></label>
+            <div id="login" onsubmit="process(event)">
+             <input class="form-control button1" id="phone" type="tel" name="phone" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="State" class="form-label" required><h6>State*</h6></label>
+            <select style="background-color: white;color: black" onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control form-select" required></select>
+          </div>
+          <div class="col-md-6">
+            <label for="City" class="form-label" required><h6>City*</h6></label>
+            <select style="background-color: white;color: black" id ="state" class="form-control form-select" required></select>
+          </div>
+          <div class="col-12">
+            <label for="TeamMembers-investigation" class="form-label"><h6>Investigation Type- Team Member*</h6></label>
+            <select id="TeamMembers-investigation" class="form-select">
+              <option selected></option>
+              <option>Covid-19 Positive-Home Quarantine</option>
+              <option>Covid-19 Positive-Hospitalized</option>
+              <option>Covid-19 Positive-Need support from Organization</option>
+              <option>Covid-19 Suspect-Test report awaited</option>
+              <option>Covid-19 Suspect-Need Support for testing </option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label for="TeamMembers-workstatus" class="form-label"><h6>Is the team member on Leave or Working?*</h6></label><br>
+             <div style="margin-top: 0vw" class="col-md-6">
+               <a style="background-color: #f2f2f2" href="file:///C:/Users/HP/OneDrive/Desktop/Covid%20Tracker/leave.html" class="btn btn-lg" tabindex="-1" role="button">Leave</a>
+               <a style="background-color: #ff944d;margin-left: 3vw" href="file:///C:/Users/HP/OneDrive/Desktop/Covid%20Tracker/working.html" class="btn btn-lg" tabindex="-1" role="button">Working</a>
+             </div>
+          </div>
+          <div style="margin-top: 5vw" class="col-md-6">
+            <a style="background-color: #ffcc99" href="file:///C:/Users/HP/OneDrive/Desktop/Covid%20Tracker/Index.html?" class="btn btn-lg" tabindex="-1" role="button">Back</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script language="javascript">print_state("sts");</script>
+    <script>
+  
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+        preferredCountries: ["in"],
+        utilsScript:
+       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+    </script>
+  </body>
+</html>
